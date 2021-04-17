@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "github.com/Nickhil-Sethi/go-say-hello";
+package sayhello;
+
+service SayHello {
+        rpc WriteLogEvent(LogEvent) returns (LogResponse) {}
+}
+
+message LogEvent {
+        string content = 1;
+}
+
+message LogResponse {
+        string status = 1;
+}
