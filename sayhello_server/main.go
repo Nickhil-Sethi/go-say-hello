@@ -1,5 +1,6 @@
 package main
 
+import "context"
 import "log"
 import "net"
 import "google.golang.org/grpc"
@@ -13,7 +14,7 @@ type server struct {
 	pb.UnimplementedSayHelloServer
 }
 
-func (s *server) WriteLogEvent(ctx *context.Context, logevent *pb.LogEvent) (*pb.LogResponse, error) {
+func (s *server) WriteLogEvent(ctx context.Context, logevent *pb.LogEvent) (*pb.LogResponse, error) {
 	log.Println(logevent.GetContent())
 	return &pb.LogResponse{Status: "success"}, nil
 }
