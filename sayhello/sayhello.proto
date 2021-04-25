@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "google/protobuf/timestamp.proto";
 option go_package = "github.com/Nickhil-Sethi/go-say-hello";
 package sayhello;
 
@@ -7,9 +8,10 @@ service SayHello {
 }
 
 message LogEvent {
-        string content = 1;
+        google.protobuf.Timestamp timestamp = 1;
+        string content = 2;
 }
 
 message LogResponse {
-        string status = 1;
+        bool success = 1;
 }
